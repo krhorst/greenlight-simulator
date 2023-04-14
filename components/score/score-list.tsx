@@ -8,7 +8,7 @@ export default function ScoreList({ scores }: { scores: ScoreProps[] }) {
         <div>
             {
                 scores.map((score: ScoreProps, index: number) => (
-                    <div className="grid grid-cols-3 px-6">
+                    <div className="grid grid-cols-3 px-6" key={index}>
                         <div className="w-full">
                             {index + 1}
                         </div>

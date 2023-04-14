@@ -73,7 +73,7 @@ export default function Home() {
 
     if (!nameWasSet) {
         // Form to get the name
-        return (<><form onSubmit={updateNameWasSet.bind(this, true)}>
+        return (<><form onSubmit={() => updateNameWasSet(true)}>
             <input placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value) } />
             <input type="submit" />
         </form>

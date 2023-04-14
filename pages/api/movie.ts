@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { randomMovies } from 'lib/api/movie';
-import { getSession } from 'next-auth/react';
-import { getMdxSource } from 'lib/api/user';
 
 export default async function handler(
   req: NextApiRequest,

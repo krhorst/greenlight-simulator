@@ -7,8 +7,8 @@ export default function MovieHistory({ movies }: { movies: MovieProps[]}) {
     return (
         <div>
         {
-            movies.map((movie: MovieProps) => (
-                <div className="grid grid-cols-4 px-6">
+            movies.map((movie: MovieProps, index: number) => (
+                <div className="grid grid-cols-4 px-6" key={index}>
                     <div className="w-full">
                         {movie.original_title}
                     </div>
