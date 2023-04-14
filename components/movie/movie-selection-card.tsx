@@ -18,15 +18,16 @@ export default function MovieSelectionCard({ movie, otherMovie, adjustScoreForSe
     };
     
     return (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-            <div className="px-6 py-4">
+        <div className="max-w max-h my-2 mx-4 rounded bg-white p-8 shadow-lg rounded-lg">
+            <div className="px-2 py-4">
                 <div className="font-bold text-xl mb-2">Budget: {formatCurrency(movie.budget)}</div>
                     <p className="text-gray-700 text-base">
                         {movie.overview}
                     </p>
                 </div>
             <div className="px-6 pt-4 pb-2">
-                <span onClick={() => { adjustScoreForSelection(movie, otherMovie) }} className="cursor-pointer inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Green Light</span>
+                <span onClick={() => { adjustScoreForSelection(movie, otherMovie) }}
+                    className="cursor-pointer inline-block bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Green Light</span>
                 </div>
         </div>
     );

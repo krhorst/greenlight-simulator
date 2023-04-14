@@ -44,9 +44,7 @@ export default function Scores() {
     
 
 
-    return (<>
-        <ScoreList scores={topScores} />
-            </>)
+    return (<ScoreList scores={topScores} />)
 }
 
 export const getStaticProps: GetStaticProps = async () => {

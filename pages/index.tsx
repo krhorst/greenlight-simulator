@@ -85,7 +85,7 @@ export default function Home() {
     }
     
     return (<>
-              <ScoreSummary score={score} />
+        <ScoreSummary score={score} name={name} />
               <MovieHistory movies={previousMovies} />
               <MovieSelections movies={currentMovies} adjustScoreForSelection={adjustScoreForSelection} />
             </>)
