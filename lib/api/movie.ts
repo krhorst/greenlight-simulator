@@ -9,6 +9,7 @@ export interface MovieProps {
     budget: number;
     revenue: number;
     overview: string;
+    wasCorrect?: boolean;
 }
 
 

@@ -7,6 +7,7 @@ import clientPromise from '@/lib/mongodb';
 import MovieHistory from '@/components/movie/movie-history';
 import ScoreSummary from '@/components/score/score-summary';
 import MovieSelections from '@/components/movie/movie-selections';
+import AddNameForm from '../components/player/add-name-form';
 
 export default function Home() {
     const [score, setScore] = useState(0);
@@ -19,10 +20,16 @@ export default function Home() {
     useEffect(() => {
         getNewMovies();
     }, []);
-    
-    const adjustScoreForSelection = (movie: MovieProps) => {
+
+    const getProfitLoss = (movie: MovieProps) => {
+        return movie.revenue - movie.budget;
+    }
+
+    const adjustScoreForSelection = (movie: MovieProps, otherMovie: MovieProps) => {
         setLastSelection(movie);
-        setScore(score + movie.revenue - movie.budget);
+        
+        movie.wasCorrect = getProfitLoss(movie) > getProfitLoss(otherMovie);
+        setScore(score + getProfitLoss(movie));
         setPreviousMovies([...previousMovies, movie]);
         getNewMovies();
     }
@@ -72,12 +79,9 @@ export default function Home() {
     }
 
     if (!nameWasSet) {
-        // Form to get the name
-        return (<><form onSubmit={() => updateNameWasSet(true)}>
-            <input placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value) } />
-            <input type="submit" />
-        </form>
-        </>)
+        return (<AddNameForm onNameAdded={() => updateNameWasSet(true)} 
+                             onNameChanged={(name: string) => setName(name)}
+                             name={name} />)
     }
     
     return (<>

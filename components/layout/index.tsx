@@ -23,7 +23,7 @@ export default function Layout({
   }
 
   return (
-    <div className="w-full mx-auto h-screen mb4 overflow-hidden">
+    <div className="w-full mx-auto mb4 overflow-hidden">
       <Meta props={meta} />
           {children}
     </div>

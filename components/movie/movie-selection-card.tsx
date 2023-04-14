@@ -1,6 +1,10 @@
 import { MovieProps} from '@/lib/api/movie';
 
-export default function MovieSelectionCard({ movie, adjustScoreForSelection }: { movie: MovieProps, adjustScoreForSelection: (movie: MovieProps) => void }) {
+export default function MovieSelectionCard({ movie, otherMovie, adjustScoreForSelection }: {
+    movie: MovieProps,
+    otherMovie: MovieProps,
+    adjustScoreForSelection: (movie: MovieProps, otherMovie: MovieProps) => void
+}) {
 
     // helper to format budget as for example:
     // 1200000 should return $1.2 Million
@@ -22,7 +26,7 @@ export default function MovieSelectionCard({ movie, adjustScoreForSelection }: {
                     </p>
                 </div>
             <div className="px-6 pt-4 pb-2">
-                <span onClick={() => { adjustScoreForSelection(movie) }} className="cursor-pointer inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Green Light</span>
+                <span onClick={() => { adjustScoreForSelection(movie, otherMovie) }} className="cursor-pointer inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Green Light</span>
                 </div>
         </div>
     );
