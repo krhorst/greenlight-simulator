@@ -11,7 +11,7 @@ export default function AddNameForm({ onNameAdded, onNameChanged, name }: {
         <h1 className="text-2xl font-bold mb-6 text-center">Greenlight Simulator</h1>
         <form className="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md" onSubmit={() => onNameAdded(name)}>
             <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name</label>
                 <input className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                     type="text" id="name" name="name" placeholder="Enter your name" value={name} onChange={(e) => onNameChanged(e.target.value)} />
             </div>
